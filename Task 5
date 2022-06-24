@@ -1,0 +1,19 @@
+def count_find_num(primes, limit):
+    base = 0
+    if len(primes) > 0:
+        base = 1
+        for i in primes:
+            base *= int(i)
+
+    if base > limit:
+        return []
+
+    answ = [base]
+
+    for i in primes:
+        for num in answ:
+            num *= i
+            while num not in answ and num <= limit:
+                answ += [num]
+                num *= i
+    return [len(answ), max(answ)]
