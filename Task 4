@@ -1,0 +1,18 @@
+import itertools
+
+
+def bananas(s):
+    result = set()
+
+    for tir in itertools.combinations(range(len(s)), len(s) - 6):
+        word = list(s)
+
+        for i in tir:
+            word[i] = '-'
+
+        answ = ''.join(word)
+
+        if answ.replace('-', '') == 'banana':
+            result.add(answ)
+
+    return result
