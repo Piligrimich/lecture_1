@@ -1,0 +1,47 @@
+def int32_to_ip(int32):
+    b = bin(int32)
+    b = b[2:34]
+    if len(b) < 32:
+        num = 32 - len(b)
+        zero = '0'*num
+        zero += b
+        b = zero
+
+    num1 = b[0:8]
+    num2 = b[8:16]
+    num3 = b[16:24]
+    num4 = b[24:32]
+
+    for i in num1:
+        if int(i) > 0:
+            num1 = int(num1, 2)
+            break
+    if type(num1) == str:
+        num1 = 0
+
+    for i in num2:
+        if int(i) > 0:
+            num2 = int(num2, 2)
+            break
+    if type(num2) == str:
+        num2 = 0
+
+    for i in num3:
+        if int(i) > 0:
+            num3 = int(num3, 2)
+            break
+    if type(num3) == str:
+        num3 = 0
+
+    for i in num4:
+        if int(i) > 0:
+            num4 = int(num4, 2)
+            break
+    if type(num4) == str:
+        num4 = 0
+
+    strt = ""
+
+    strt = str(num1) + "." + str(num2) + "." + str(num3) + "." + str(num4)
+
+    return strt
